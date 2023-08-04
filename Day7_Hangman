@@ -1,0 +1,38 @@
+# Day 7: Hangman Game
+Today I learned and practiced the following concepts:
+
+- For/IN & While Loops
+- IF / ELSE
+- Python lists
+- The strings
+- The range function
+- The modules
+
+I also created a flow chart for the hangman game and learned about the IN keyword for the loops and conditionals.
+
+## For/IN & While Loops
+For loops are used to iterate over a sequence of elements, such as a list or a string. While loops are used to repeatedly execute a block of code as long as a condition is met.
+
+## IF / ELSE
+IF statements are used to control the flow of execution of a program. ELSE statements are used to provide an alternative block of code to execute if the condition of the IF statement is not met.
+
+## Python Lists
+Python lists are a data structure that can store a sequence of elements. Elements in a list can be of any type, including other lists.
+
+## The strings
+Strings are a data type that represents a sequence of characters. Strings can be manipulated using a variety of methods, such as len(), upper(), and lower().
+
+## The range function
+The range function is used to generate a sequence of numbers. The range function can be used to iterate over a sequence of numbers in a for loop.
+
+## The modules
+Modules are a way to organize code in Python. Modules can be imported into other Python programs.
+
+## New things
+I created a flow chart for the hangman game. This helped me to visualize the logic of the game.
+I learned about the IN keyword for the loops and conditionals. The IN keyword can be used to check if a value is contained in a sequence.
+Conclusion
+I learned a lot about Python programming today. I am now able to create more complex programs, such as the hangman game. I am excited to continue learning Python and to create even more challenging programs in the future.
+
+## Resources
+Replit: https://replit.com/@replitm4ch5/Day-7-Hangman-5-Start#hangman_art.py
