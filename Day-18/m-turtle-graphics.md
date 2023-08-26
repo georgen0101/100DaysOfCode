@@ -317,6 +317,151 @@ screen.exitonclick()
 ![img_6.png](img_6.png)
 ![img_7.png](img_7.png)
 
+## Extract colors from an image
+
+```python
+import colorgram as cg
+
+
+def extract_the_rgb(rgb_object):
+    """Extract the values from a rgb object and return an RGB tuple"""
+    r = rgb_object.r
+    g = rgb_object.g
+    b = rgb_object.b
+    return (r, g, b)
+
+
+def extract_colors(image_path, number_of_colors):
+    """image_path is the name of the file, number_of_colors is how many colors will the program extract. \
+    This program return a list of rgb tuples"""
+    l_colors = cg.extract(image_path, number_of_colors)
+    rgb_list = []
+    for properties in l_colors:
+        rgb_namedtuple = properties.rgb
+        rgb = extract_the_rgb(rgb_namedtuple)
+        rgb_list.append(rgb)
+    return rgb_list
+
+
+colors = extract_colors("hirst-spot-painting.jpg", 10)
+print(colors)
+
+
+```
+Output:
+![img_9.png](img_9.png)
+
+### Simplified version:
+```python
+import colorgram as cg
+
+list_of_colors = []
+colors = cg.extract("hirst-spot-painting.jpg", 20)
+for color in colors:
+    r = color.rgb.r
+    g = color.rgb.b
+    b = color.rgb.b
+    rgb_tuple = (r, g, b)
+    list_of_colors.append(rgb_tuple)
+
+
+print(list_of_colors)
+```
+Same result:
+```python
+colors = [(229, 226, 226), (225, 224, 224), (199, 117, 117), (124, 24, 24), (210, 213, 213), (168, 57, 57), (222, 227, 227),
+ (186, 53, 53), (6, 83, 83), (109, 85, 85), (113, 175, 175), (22, 174, 174), (64, 138, 138), (39, 36, 36), (76, 48, 48),
+ (9, 47, 47), (90, 53, 53), (181, 79, 79), (132, 42, 42), (210, 151, 151)]
+```
+
+
+Extracted 20 colors:
+```python
+color_list = [(229, 228, 226), (225, 223, 224), (199, 175, 117), (124, 36, 24), (210, 221, 213), (168, 106, 57),
+              (222, 224, 227), (186, 158, 53), (6, 57, 83), (109, 67, 85), (113, 161, 175), (22, 122, 174),
+              (64, 153, 138), (39, 36, 36), (76, 40, 48), (9, 67, 47), (90, 141, 53), (181, 96, 79), (132, 40, 42),
+              (210, 200, 151)]
+```
+
+
 ## Final project - The Hirst Painting
+
+Requirements:
+- 10 x 10 spots
+- Size of the dot 20
+- Separated by 50 paces
+
+### After refinements
+```python
+import turtle as t
+import random as rd
+
+tim = t.Turtle()
+tim.hideturtle()
+screen = t.Screen()
+tim.speed(0)
+tim.penup()
+t.colormode(255)
+
+color_list = [(229, 228, 226), (225, 223, 224), (199, 175, 117), (124, 36, 24), (210, 221, 213), (168, 106, 57),
+              (222, 224, 227), (186, 158, 53), (6, 57, 83), (109, 67, 85), (113, 161, 175), (22, 122, 174),
+              (64, 153, 138), (39, 36, 36), (76, 40, 48), (9, 67, 47), (90, 141, 53), (181, 96, 79), (132, 40, 42),
+              (210, 200, 151)]
+
+
+screen.setup(width=600, height=600)
+
+
+pos_y = -225
+pos_x = -225
+
+
+for row in range(10):
+    tim.sety(pos_y)
+    for column in range(10):
+        tim.setx(pos_x)
+        tim.dot(20, rd.choice(color_list))
+        pos_x += 50
+    pos_y += 50
+    pos_x = -225
+
+
+screen.exitonclick()
+
+```
+![img_8.png](img_8.png)
+
+### Simplified code I found in the comments:
+
+```python
+import turtle as t
+import random as rd
+
+tim = t.Turtle()
+tim.hideturtle()
+screen = t.Screen()
+tim.speed(0)
+tim.penup()
+t.colormode(255)
+
+color_list = [(229, 228, 226), (225, 223, 224), (199, 175, 117), (124, 36, 24), (210, 221, 213), (168, 106, 57),
+              (222, 224, 227), (186, 158, 53), (6, 57, 83), (109, 67, 85), (113, 161, 175), (22, 122, 174),
+              (64, 153, 138), (39, 36, 36), (76, 40, 48), (9, 67, 47), (90, 141, 53), (181, 96, 79), (132, 40, 42),
+              (210, 200, 151)]
+
+
+screen.setup(width=600, height=600)
+
+
+for y_cor in range(-225, 275, 50):
+    for x_cor in range(-225, 275, 50):
+        tim.goto(x_cor, y_cor)
+        tim.dot(20, rd.choice(color_list))
+
+
+screen.exitonclick()
+
+```
+![img_10.png](img_10.png)
 
 
