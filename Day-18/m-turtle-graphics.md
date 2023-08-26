@@ -59,7 +59,7 @@ from random import *
 # Syntax
 forward(100)
 random()
-choice()
+choice("hello")
 ```
 
 **Aliases modules**:<br>
@@ -138,19 +138,184 @@ tim = Turtle()
 tim.shape("turtle")
 tim.color("chocolate")
 
-for corners in range(3, 10):
+# range is exclusive.
+for corners in range(3, 11):
     angle = 360 / corners  # 90 degree
     tim.pencolor(random.choice(color)) # Random color
     for sides in range(corners):
         tim.forward(100)
         tim.right(angle)
 
-
 screen = Screen()
 screen.exitonclick()
 ```
 
 ![img_2.png](img_2.png)
+
+### With functions
+Took me more to make the functions and I don't even feel satisfied by how I made them. Will force myself to make the 
+code only with functions.
+
+```python
+from turtle import Turtle, Screen
+from random import choice
+number_of_colors = 10
+
+color = ["#"+''.join([choice('0123456789ABCDEF') for j in range(6)])
+             for i in range(number_of_colors)]
+
+tim = Turtle()
+tim.shape("turtle")
+tim.color("chocolate")
+
+
+def draw_shape(sides):
+    angle = 360 / sides
+    for _ in range(sides):
+        tim.forward(100)
+        tim.right(angle)
+
+
+def multiple_shapes(n):
+    """Start with a triangle"""
+    for corner in range(3, n + 1):
+        tim.pencolor(choice(color))
+        draw_shape(corner)
+
+
+multiple_shapes(10)
+
+screen = Screen()
+screen.exitonclick()
+```
+
+![img_3.png](img_3.png)
+
+## Challenge 4: Random walk
+https://en.wikipedia.org/wiki/Random_walk
+
+1. Draw randomly
+2. Change the thickness of the drawing
+3. Speed te turtle drawing
+4. The lines must be in random colors
+
+```python
+from turtle import Turtle, Screen
+from random import choice
+number_of_colors = 10
+
+color = ["#"+''.join([choice('0123456789ABCDEF') for j in range(6)])
+             for i in range(number_of_colors)]
+
+tim = Turtle()
+tim.hideturtle()
+screen = Screen()
+# screen.screensize(5000, 3000)
+tim.speed(0)
+
+
+def random_direction():
+    """Set tim to a random heading direction"""
+    angles = [0, 90, 180, 270]
+    tim.setheading(choice(angles))
+
+
+def move_randomly():
+    """This function move tim forward by 50 steps with a pensize of 10 and a random color"""
+    tim.pencolor(choice(color))
+    tim.pensize(5)
+    tim.forward(20)
+    random_direction()
+
+
+for i in range(500):
+    move_randomly()
+
+
+screen.exitonclick()
+```
+
+![img_4.png](img_4.png)
+
+## Generate random colors in RGB with tuples
+
+```python
+import turtle as t
+import random as rd
+
+tim = t.Turtle()
+tim.hideturtle()
+screen = t.Screen()
+tim.speed(0)
+t.colormode(255)
+
+
+def random_color():
+    r = rd.randint(0, 255)  # Inclusive range
+    g = rd.randint(0, 255)
+    b = rd.randint(0, 255)
+    return (r, g, b)
+
+
+def random_direction():
+    """Set tim to a random heading direction"""
+    angles = [0, 90, 180, 270]
+    tim.setheading(rd.choice(angles))
+
+
+def move_randomly():
+    """This function move tim forward by 50 steps with a pensize of 10 and a random color"""
+    tim.pencolor(random_color())
+    tim.pensize(5)
+    tim.forward(20)
+    random_direction()
+
+
+for i in range(500):
+    move_randomly()
+
+screen.exitonclick()
+```
+![img_5.png](img_5.png)
+
+## Draw a spirograph
+
+- Only documentation
+
+```python
+import turtle as t
+import random as rd
+
+tim = t.Turtle()
+tim.hideturtle()
+screen = t.Screen()
+tim.speed(0)
+t.colormode(255)
+
+
+def random_color():
+    r = rd.randint(0, 255)  # Inclusive range
+    g = rd.randint(0, 255)
+    b = rd.randint(0, 255)
+    return (r, g, b)
+
+
+def draw_spirograph(gap):
+    for i in range(int(360 / gap)):
+        tim.pencolor(random_color())
+        tim.circle(100)
+        tim.setheading(tim.heading() + gap)
+
+
+draw_spirograph(1)
+
+
+screen.exitonclick()
+
+```
+
+![img_6.png](img_6.png)
+![img_7.png](img_7.png)
 
 ## Final project - The Hirst Painting
 
