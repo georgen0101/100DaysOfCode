@@ -315,7 +315,7 @@ screen.exitonclick()
 ![CleanShot 2023-08-28 at 12.14.00.gif](..%2F..%2F..%2FLibrary%2FApplication%20Support%2FCleanShot%2Fmedia%2Fmedia_uhjTySgJoO%2FCleanShot%202023-08-28%20at%2012.14.00.gif)
 
 ## Final code
-The snake can't be going up and then down.
+The snake can't be going up and then down. This applies to all the directions, similar to the game.
 
 Main
 ```python
