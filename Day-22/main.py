@@ -21,7 +21,6 @@ ball = Ball()
 # Create the scoreboard
 scoreboard = Scoreboard()
 
-
 # Move the paddle
 screen.listen()
 screen.onkey(fun=r_paddle.move_up, key="Up")
