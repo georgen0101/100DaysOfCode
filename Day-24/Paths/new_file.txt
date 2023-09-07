@@ -1,0 +1,3 @@
+Hello, this is the file to practice the Absolute path in MAC.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et dolor ac felis congue commodo. Nam pretium interdum ex, nec dictum dui. Nullam ac libero id neque feugiat facilisis.
+Donec non pulvinar purus. Integer aliquam tortor est, et suscipit dolor sagittis sed. Maecenas feugiat interdum odio, in bibendum augue malesuada sed. Praesent vitae tempor nisi. Nullam egestas vitae magna ut condimentum.
