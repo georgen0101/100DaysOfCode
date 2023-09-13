@@ -30,10 +30,14 @@ while len(guessed_states) < 50:
     if answer_state == "Exit":
         # Save the missing states
         # states_to_learn.csv
-        missing_states = []
-        for state in all_states:
-            if state not in guessed_states:
-                missing_states.append(state)
+
+        # missing_states = []
+        # for state in all_states:
+        #     if state not in guessed_states:
+        #         missing_states.append(state)
+
+        # List Comprehension
+        missing_states = [state for state in all_states if state not in guessed_states]
         pandas.Series(missing_states).to_csv("states_to_learn.csv")
         break
     if answer_state in all_states:
