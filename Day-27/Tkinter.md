@@ -221,6 +221,13 @@ window.mainloop()
 
 ![img.png](img.png)
 
+
+## Tkinter Layout Manager
+
+- pack(), from top to bottom and centered.
+- place(), use coordinates.
+- grid(), recommended.
+
 # Miles to Kilometer Converter
 
 ```python
